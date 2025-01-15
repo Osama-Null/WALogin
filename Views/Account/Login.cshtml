@@ -1,0 +1,56 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center">
+</div>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5">
+
+                        <div class="mt-md-4 pb-5">
+                            <div class="text-center">
+                                <h2 class="display-4 fw-bold mb-2 text-uppercase">Welcome</h2>
+                                <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                            </div>
+                            <form asp-action="Login" asp-controller="Account" method="post">
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <label class="form-label text-start" for="typeEmailX">Email</label>
+                                    <input asp-for="Email" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <label class="form-label" for="typePasswordX">Password</label>
+                                    <input asp-for="Password" type="password" class="form-control form-control-lg" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="text-center">
+                                    <input data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit" value="Login" />
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="text-center">
+                            <p class="mb-0">
+                                Don't have an account? <a asp-action="Register" asp-controller="Account" class="text-white-50 fw-bold">Register</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.validate.unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}

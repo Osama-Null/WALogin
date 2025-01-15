@@ -1,0 +1,25 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+<br>
+<br>
+<h3>Welcome @Model.User.Name :)</h3>
+
+<h4>You Info</h4>
+<table class="table table-responsive">
+	<tr>
+		<td class="fw-bold">@Html.DisplayNameFor(Model => Model.User.Name)</td>
+		<td>@Model.User.Name</td>
+	</tr>
+	<tr>
+		<td class="fw-bold">@Html.DisplayNameFor(Model => Model.User.Email)</td>
+		<td>@Model.User.Email</td>
+	</tr>
+	<tr>
+		<td class="fw-bold">@Html.DisplayNameFor(Model => Model.Role)</td>
+		<td>@Model.User.Role!.Name</td>
+	</tr>
+</table>
