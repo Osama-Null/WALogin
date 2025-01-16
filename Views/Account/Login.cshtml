@@ -19,6 +19,7 @@
                                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
                             </div>
                             <form asp-action="Login" asp-controller="Account" method="post">
+                                <div asp-validation-summary="All" class="text-danger"></div>
                                 <div data-mdb-input-init class="form-outline form-white mb-4">
                                     <label class="form-label text-start" for="typeEmailX">Email</label>
                                     <input asp-for="Email" class="form-control form-control-lg" />

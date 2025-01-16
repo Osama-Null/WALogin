@@ -14,10 +14,12 @@ namespace WALogin.Controllers
         {
             _db = db;
         }
+        //=======================================================
         public IActionResult Index()
         {
             return View(_db.Users);
         }
+        //=======================================================
         public IActionResult Register()
         {
             ViewBag.Roles = new SelectList(_db.Roles, "RoleId", "Name");
@@ -44,6 +46,7 @@ namespace WALogin.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+        //=======================================================
         public IActionResult Login()
         {
             return View();
@@ -66,14 +69,15 @@ namespace WALogin.Controllers
 
             var dbUser = _db.Users.SingleOrDefault(u => u.Email == user.Email && u.Password == user.Password);
 
-            if (dbUser == null)
+            if (dbUser == null || dbUser.Password != model.Password)
             {
                 ModelState.AddModelError("", "Invalid email or password.");
-                return View(user);
+                return View(model);
             }
             TempData["Message"] = "Login successful!";
             return RedirectToAction("Dashboard", new { userId = dbUser.Id });
         }
+        //=======================================================
         public IActionResult Dashboard(int userId)
         {
             var user = _db.Users.Include(u => u.Role).FirstOrDefault(u => u.Id == userId);

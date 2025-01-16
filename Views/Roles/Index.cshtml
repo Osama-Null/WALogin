@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Role>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@foreach(var item in Model){
+    @item.Name
+}
